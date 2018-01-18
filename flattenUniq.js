@@ -8,14 +8,18 @@ function flattenUniq(arrayOfArrays) {
     return flattenedArray;
   }
   this.unique = function() {
-    this.flattenedArray = flattenedArray
-    var uniqArray = [flattenedArray[i]];
-    for (var i = 1; i < flattenedArray.length; i++) {
-      for (j = 0; j < uniqArray.length; j++){
-        if (flattenedArray[i] === uniqArray[j]) {
+    var flattened = this.flatten()
+    var uniqArray = [flattened[0]];
+    for (var i=1; i < flattened.length; i++) {
+      var save = true;
+      for (var j = 0; j < uniqArray.length; j++){
+        if (flattened[i] === uniqArray[j]) {
+          save = false;
           break;
         }
-        uniqArray.push(flattenedArray[i]);
+      }
+      if (save === true) {
+        uniqArray.push(flattened[i]);
       }
     }
     return uniqArray;
