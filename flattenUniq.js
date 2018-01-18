@@ -10,7 +10,7 @@ function flattenUniq(arrayOfArrays) {
   this.unique = function() {
     this.flattenedArray = flattenedArray
     var uniqArray = [flattenedArray[i]];
-    for (i=1; i < flattenedArray.length; i++) {
+    for (var i = 1; i < flattenedArray.length; i++) {
       for (j = 0; j < uniqArray.length; j++){
         if (flattenedArray[i] === uniqArray[j]) {
           break;
